@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Backend Server</title>
+  <style>body { font-family: sans-serif; text-align: center; padding: 50px; }</style>
+</head>
+<body>
+  <h1>Response from Backend: {{ inventory_hostname }}</h1>
+  <p>My Private IP is: <strong>{{ ansible_default_ipv4.address }}</strong></p>
+  <p>Status: Active</p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+---
+- name: Install Apache (httpd)
+  yum:
+    name: httpd
+    state: present
+    update_cache: yes
+
+- name: Start and Enable Apache Service
+  service:
+    name: httpd
+    state: started
+    enabled: true
+
+- name: Deploy Custom Index Page
+  template:
+    src: backend_index.html.j2
+    dest: /var/www/html/index.html
+    owner: apache
+    group: apache
+    mode: '0644'
+  notify: Restart httpd
